@@ -4,8 +4,17 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.content}>
-                <h1>nooneboss</h1>
-                <p>Developer</p>
+                <div className={styles.profileWrapper}>
+                    <img
+                        src="/icon.png"
+                        alt="Avatar"
+                        className={styles.avatar}
+                    />
+                    <div className={styles.titleContainer}>
+                        <h1>nooneboss</h1>
+                        <p className={styles.subtitle}>или ноуванбосс?</p>
+                    </div>
+                </div>
             </div>
         </header>
     );
