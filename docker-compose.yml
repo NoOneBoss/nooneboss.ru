@@ -1,10 +1,53 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
     ports:
       - "80:80"
-    restart: unless-stopped
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - nginx_certs:/etc/nginx/certs
+      - nginx_vhost:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+    networks:
+      - proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-letsencrypt
     environment:
-      - NODE_ENV=production
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - DEFAULT_EMAIL=aistornikov@mail.ru
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx_certs:/etc/nginx/certs
+      - nginx_vhost:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+    networks:
+      - proxy
+    depends_on:
+      - nginx-proxy
+
+  frontend:
+    build:
+      context: .
+    environment:
+      - VIRTUAL_HOST=nooneboss.ru
+      - LETSENCRYPT_HOST=nooneboss.ru
+      - LETSENCRYPT_EMAIL=aistornikov@mail.ru
+    expose:
+      - "80"
+    networks:
+      - proxy
+
+volumes:
+  nginx_certs:
+  nginx_vhost:
+  nginx_html:
+
+networks:
+  proxy:
+    external: false
