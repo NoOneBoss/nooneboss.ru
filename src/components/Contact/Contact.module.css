@@ -1,0 +1,25 @@
+.contact {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link {
+    color: #f0f0f0 !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.3s;
+}
+
+.link:hover {
+    opacity: 0.8;
+}
