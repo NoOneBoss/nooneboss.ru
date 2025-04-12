@@ -1,9 +1,22 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
     background: #121212;
-    color: #e0e0e0;
-    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+}
+
+.main-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+    }
 }
 
 section {
@@ -24,7 +37,7 @@ main {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 50%;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -38,4 +51,15 @@ h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     position: relative;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: #121212;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
 }

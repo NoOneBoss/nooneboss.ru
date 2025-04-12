@@ -15,7 +15,7 @@ import { SiSharp, SiGrafana, SiJenkins, SiApachejmeter, SiK6 } from 'react-icons
 import { DiPostgresql } from 'react-icons/di';
 
 // Сопоставление иконок с технологиями
-const techIcons = {
+export const techIcons = {
     'Kotlin': <FaCode className={styles.icon} />,
     'Java': <FaJava className={styles.icon} />,
     'C#': <SiSharp className={styles.icon} />,

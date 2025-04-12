@@ -23,9 +23,9 @@
     padding: 1.5rem 3rem;
     background: rgba(0, 0, 0, 0.14);
     border-radius: 15px;
-    width: 450px;
     animation: float 6s ease-in-out infinite;
-    justify-content: center; /* Добавлено */
+    justify-content: center;
+    width: auto;
 }
 
 @keyframes float {
@@ -58,11 +58,11 @@
 
 h1 {
     color: #f0f0f0;
-    font-size: 5rem;
     margin: 0;
-    letter-spacing: -10px;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
     transition: text-shadow 0.3s ease;
+    font-size: 3.5rem;
+    letter-spacing: -7px;
 }
 
 h1:hover {
@@ -72,7 +72,7 @@ h1:hover {
 .subtitle {
     color: #737373;
     font-size: 1.4rem;
-    margin: -2rem 0 0;
+    margin: -1rem 0 0;
     font-weight: 300;
     letter-spacing: 2px;
 }
