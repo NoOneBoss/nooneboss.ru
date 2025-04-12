@@ -3,10 +3,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: -1;
+    overflow: hidden;
 }
 
 .cube {
@@ -14,45 +15,48 @@
     width: 60px;
     height: 60px;
     transform-style: preserve-3d;
-    transition: transform 0.1s linear;
+    transition: transform 0.15s linear;
+    will-change: transform;
 }
 
 .cube div {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(63, 63, 63, 0.1);
-    border: 1px solid rgba(73, 73, 73, 0.3);
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
 .cube div svg {
-    width: 70%;
-    height: 70%;
-    color: rgba(255, 255, 255, 0.23);
+    width: 65%;
+    height: 65%;
+    color: rgba(255, 255, 255, 0.74);
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.15));
 }
 
+/* 3D грани */
 .face0 { transform: translateZ(30px); }
-.face1 { transform: rotateX(180deg) translateZ(30px); }
-.face2 { transform: rotateX(90deg) translateZ(30px); }
-.face3 { transform: rotateX(-90deg) translateZ(30px); }
-.face4 { transform: rotateY(90deg) translateZ(30px); }
-.face5 { transform: rotateY(-90deg) translateZ(30px); }
+.face1 { transform: rotateY(180deg) translateZ(30px); }
+.face2 { transform: rotateY(90deg) translateZ(30px); }
+.face3 { transform: rotateY(-90deg) translateZ(30px); }
+.face4 { transform: rotateX(90deg) translateZ(30px); }
+.face5 { transform: rotateX(-90deg) translateZ(30px); }
 
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .cube {
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
     }
 
-    .face0 { transform: translateZ(15px); }
-    .face1 { transform: rotateX(180deg) translateZ(15px); }
-    .face2 { transform: rotateX(90deg) translateZ(15px); }
-    .face3 { transform: rotateX(-90deg) translateZ(15px); }
-    .face4 { transform: rotateY(90deg) translateZ(15px); }
-    .face5 { transform: rotateY(-90deg) translateZ(15px); }
+    .face0 { transform: translateZ(25px); }
+    .face1 { transform: rotateY(180deg) translateZ(25px); }
+    .face2 { transform: rotateY(90deg) translateZ(25px); }
+    .face3 { transform: rotateY(-90deg) translateZ(25px); }
+    .face4 { transform: rotateX(90deg) translateZ(25px); }
+    .face5 { transform: rotateX(-90deg) translateZ(25px); }
 }
