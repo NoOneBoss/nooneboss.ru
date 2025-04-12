@@ -1,4 +1,6 @@
+
 import styles from './Header.module.css';
+import { Link } from 'react-scroll';
 
 const Header = () => {
     return (
@@ -15,6 +17,33 @@ const Header = () => {
                         <p className={styles.subtitle}>или ноуванбосс?</p>
                     </div>
                 </div>
+
+                <nav className={styles.nav}>
+                    <Link
+                        to="about"
+                        spy={true}
+                        smooth={true}
+                        className={styles.navLink}
+                    >
+                        Обо мне
+                    </Link>
+                    <Link
+                        to="projects"
+                        spy={true}
+                        smooth={true}
+                        className={styles.navLink}
+                    >
+                        Проекты
+                    </Link>
+                    <Link
+                        to="contact"
+                        spy={true}
+                        smooth={true}
+                        className={styles.navLink}
+                    >
+                        Контакты
+                    </Link>
+                </nav>
             </div>
         </header>
     );

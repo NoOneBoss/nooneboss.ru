@@ -3,7 +3,7 @@ import { FaTelegramPlane, FaGithub, FaVk } from 'react-icons/fa';
 
 const Contact = () => {
     return (
-        <section className={styles.contact}>
+        <section id="contact" className={styles.contact}>
             <div className={styles.links}>
                 <a href="https://t.me/NoOneBoss322" className={styles.link}>
                     <FaTelegramPlane className={styles.icon} />
