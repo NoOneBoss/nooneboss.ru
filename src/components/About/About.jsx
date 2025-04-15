@@ -10,6 +10,8 @@ import {
 } from 'react-icons/fa';
 import { SiSharp, SiGrafana, SiJenkins, SiApachejmeter, SiK6 } from 'react-icons/si';
 import { DiPostgresql } from 'react-icons/di';
+import {FaGolang} from "react-icons/fa6";
+import {TbBrandMinecraft} from "react-icons/tb";
 
 const skillLevels = {
     'Java': 70,
@@ -23,7 +25,9 @@ const skillLevels = {
     'K6':10,
     'Unity':60,
     'Grafana': 50,
-    'C#': 60
+    'C#': 60,
+    'Go': 10,
+    'Minecraft': 100,
 };
 
 export const techIcons = {
@@ -39,13 +43,15 @@ export const techIcons = {
     'Jenkins': <SiJenkins className={styles.icon} />,
     'Gitlab CI': <FaGitlab className={styles.icon} />,
     'Docker': <FaDocker className={styles.icon} />,
+    'Go': <FaGolang className={styles.icon} />,
+    'Minecraft': <TbBrandMinecraft className={styles.icon} />,
 };
 
 const About = () => {
     const progressBarsRef = useRef([]);
     const sectionRef = useRef();
-    const mainTech = ['Java', 'Kotlin', 'C#', 'Unity', 'Apache JMeter', 'PostgreSQL', 'Jenkins', 'Docker'];
-    const otherTech = ['Python', 'K6', 'Grafana', 'Gitlab CI'];
+    const mainTech = ['Java', 'Kotlin', 'C#', 'Unity', 'Apache JMeter', 'PostgreSQL', 'Jenkins', 'Docker', 'Minecraft'];
+    const otherTech = ['Python', 'K6', 'Grafana', 'Gitlab CI', 'Go'];
 
     useEffect(() => {
         const progressObserver = new IntersectionObserver((entries) => {
