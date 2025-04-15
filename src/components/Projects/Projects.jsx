@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import styles from './Projects.module.css';
 import { techIcons } from '../About/About';
 
@@ -25,21 +25,10 @@ const projectsData = [
 
 const Projects = () => {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-    const [autoPlay, setAutoPlay] = useState(true);
     const [animationClass, setAnimationClass] = useState('active');
     const [isAnimating, setIsAnimating] = useState(false);
 
-    useEffect(() => {
-        let interval;
-        if (autoPlay && !isAnimating) {
-            interval = setInterval(() => {
-                handleNavigation('next');
-            }, 10000);
-        }
-        return () => clearInterval(interval);
-    }, [autoPlay, isAnimating]);
-
-    const handleNavigation = (direction) => {
+    const handleNavigation = useCallback((direction) => {
         if (isAnimating) return;
 
         setIsAnimating(true);
@@ -54,7 +43,18 @@ const Projects = () => {
             setAnimationClass('active');
             setIsAnimating(false);
         }, 600);
-    };
+    }, [isAnimating]);
+
+    useEffect(() => {
+        let interval;
+        const autoPlay = true;
+        if (autoPlay && !isAnimating) {
+            interval = setInterval(() => {
+                handleNavigation('next');
+            }, 10000);
+        }
+        return () => clearInterval(interval);
+    }, [handleNavigation, isAnimating]);
 
     const project = projectsData[currentProjectIndex];
 
